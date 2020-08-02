@@ -4,8 +4,6 @@ import Button from '../../../components/Button';
 import FormField from '../../../components/FormField';
 import Base from '../../Base';
 
-
-
 function CadastroCategoria() {
   const valoresIniciais = {
     titulo: '',
@@ -36,8 +34,10 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    if (window.location.href.includes('localhost')) {
-      const URL = 'http://localhost:8080/categorias';
+    const URL = window.location.href.includes('localhost')
+    ? 'http://localhost:8080/categorias'
+    : 'https://nerdflix-doominating.herokuapp.com/categorias';
+
       fetch(URL).then(async (respostaDoServer) => {
         if (respostaDoServer.ok) {
           const resposta = await respostaDoServer.json();
@@ -47,7 +47,6 @@ function CadastroCategoria() {
         }
         throw new Error('Não foi possível pegar os dados');
       });
-    }
   }, []);
 
   return (
