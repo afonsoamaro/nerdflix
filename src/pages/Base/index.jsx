@@ -15,12 +15,11 @@ function Base({ children, paddingAll }) {
 }
 
 Base.defaultProps = {
-  paddingAll: 'text'
+  paddingAll: undefined
 };
 
 Base.propTypes = {
-  paddingAll: PropTypes.string,
-  // eslint-disable-next-line react/forbid-prop-types
+  paddingAll: PropTypes.number,
   children: PropTypes.array.isRequired
 };
 

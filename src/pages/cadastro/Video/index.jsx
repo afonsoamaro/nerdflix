@@ -24,14 +24,14 @@ function CadastroVideo() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const categoriaId = categorias.find(
+    const categoriaEscolhida = categorias.find(
       (categoria) => categoria.titulo === values.categoria
     );
     videosRepository
       .create({
         titulo: values.titulo,
         url: values.url,
-        categoriaId
+        categoriaId: categoriaEscolhida.id
       })
       .then(() => {
         history.push('/');
@@ -43,8 +43,6 @@ function CadastroVideo() {
       setCategorias(categoriasFromServer);
     });
   }, []);
-
-  console.log(categorias);
 
   return (
     <Base>
