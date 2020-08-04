@@ -24,6 +24,10 @@
   "plugins": ["react", "prettier"],
   "parser": "babel-eslint",
   "rules": {
+    "react/jsx-one-expression-per-line": [{
+      "allow": "single-child"
+    }],
+
     "comma-dangle": ["error", "never"],
     //     // "arrays": "only-multiline",
     //     "arrays": "never",
